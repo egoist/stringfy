@@ -1,5 +1,7 @@
 'use strict'
 
+const unidecode = require('unidecode')
+
 class Stringfy {
   constructor (string) {
     this.string = string
@@ -25,6 +27,23 @@ class Stringfy {
   }
   count () {
     return this.string.match(/[\u00ff-\uffff]|\S+/g).length
+  }
+  slug () {
+    const seperator = '-'
+    let string = this.string
+    string = unidecode(string)
+    string = string.replace(/[:\/\?#\[\]@!$&'()*+,;=\\%<>\|\^~£"]/g, '')
+      // Replace dots and spaces with a sepeator
+      .replace(/(\s|\.)/g, seperator)
+      // Convert 2 or more sepeators into just one sepeator
+      .replace(/-+/g, seperator)
+      // Make the whole thing lowercase
+      .toLowerCase()
+    if(string.substring(string.length - 1) == seperator){
+      string = string.substring(0, string.length - 1)
+    }
+    this.string = string
+    return this
   }
   val () {
     return this.string

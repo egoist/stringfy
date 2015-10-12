@@ -32,4 +32,13 @@ describe('Stringfy', () => {
       stringfy('呆死ki').count().should.equal(3)
     })
   })
+
+  describe('slug', () => {
+    it('should return slugify string kong-cai-guan-ce', () => {
+      stringfy('空彩观测').slug().val().should.equal('kong-cai-guan-ce')
+    })
+    it('should return slugify string te-me-go-to-hell', () => {
+      stringfy('te me, go to hell').slug().val().should.equal('te-me-go-to-hell')
+    })
+  })
 })

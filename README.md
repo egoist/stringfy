@@ -18,6 +18,10 @@ stringfy(' hello   ').trim().val()
 
 // return words count => 3, with CJK support
 stringfy('呆死ki').count()
+
+// return slugify string, with CJK support
+// like 'I love cat' => 'i-love-cat'
+string('空彩观测').slug().val()
 ```
 
 ## License
