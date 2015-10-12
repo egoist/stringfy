@@ -15,6 +15,9 @@ stringfy('get-element-by-id').camelCase().val()
 
 // returned string `hello`
 stringfy(' hello   ').trim().val()
+
+// return words count => 3, with CJK support
+stringfy('呆死ki').count()
 ```
 
 ## License

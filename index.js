@@ -23,6 +23,9 @@ class Stringfy {
     this.string = this.string.split('').reverse().join('')
     return this
   }
+  count () {
+    return this.string.match(/[\u00ff-\uffff]|\S+/g).length
+  }
   val () {
     return this.string
   }

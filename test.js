@@ -22,4 +22,14 @@ describe('Stringfy', () => {
       stringfy('abcde').reverse().val().should.equal('edcba')
     })
   })
+
+  describe('count', () => {
+    it('should return the words count 2 of string hello', () => {
+      stringfy('hello world').count().should.equal(2)
+    })
+
+    it('should return the words count 3 of CJK string', () => {
+      stringfy('呆死ki').count().should.equal(3)
+    })
+  })
 })
